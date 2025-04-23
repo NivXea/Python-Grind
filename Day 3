@@ -118,13 +118,13 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 ''')
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.")
-dir = input("You're at a cross road. Where do you want to go?\n Type left or right.\n")
+dir = input("You're at a cross road. Where do you want to go?\n Type left or right.\n")lower() #lower() converts all input into lower case
 if dir == "left"or"Left":
     print("You've come to a lake.There is an island in the middle of a lake.")
-    river = input("Type 'wait' to wait for a boat or type 'swim' to swim across.\n")
+    river = input("Type 'wait' to wait for a boat or type 'swim' to swim across.\n")lower() ##lower() converts all input into lower case
     if river == "wait"or"Wait":
         print("You've arrived at the island unharmed. There is a house with 3 doors.")
-        door = input("One red , one yellow , one blue . Which one will you choose?\n")
+        door = input("One red , one yellow , one blue . Which one will you choose?\n")lower() #lower() converts all input into lower case
         if door == "yellow"or"Yellow":
             print("You found the treasure. You win.")
         else:
