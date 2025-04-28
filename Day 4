@@ -1,0 +1,60 @@
+#Random module
+import random
+
+random_integer = random.randint(3,5)
+print(random_integer)
+#will print a random number from 3 to 5
+
+#now
+random_0to1 = random.random() #*10 or *100
+print(random_0to1)
+
+#will print a random float number from 0 to <1.
+#also to extend the range just * 10 or *100
+
+random_float = random.uniform(5 , 9)
+print(random_float)
+#will print a number from 5 to 10 but float
+
+#Random Heads And Tails Generator
+
+Heads_tails = random.randint(1,2)
+if Heads_tails == 1 :
+    print("Tails")
+elif Heads_tails== 2 :
+    print("Heads")
+else:
+  print("Wrong Input")
+
+E                                                   N                                     D
+
+#to make a list use []
+states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "Connecticut", "Massachusetts", "Maryland", "South Carolina", "New Hampshire", "Virginia", "New York", "North Carolina", "Rhode Island", "Vermont", "Kentucky", "Tennessee", "Ohio", "Louisiana", "Indiana", "Mississippi", "Illinois", "Alabama", "Maine", "Missouri", "Arkansas", "Michigan", "Florida", "Texas", "Iowa", "Wisconsin", "California", "Minnesota", "Oregon", "Kansas", "West Virginia", "Nevada", "Nebraska", "Colorado", "North Dakota", "South Dakota", "Montana", "Washington", "Idaho", "Wyoming", "Utah", "Oklahoma", "New Mexico", "Arizona", "Alaska", "Hawaii"]
+
+states_of_america[1] = "nothing"
+#will change pennsylvania to nothing in the list
+
+#append fn
+states_of_america.append("blue")
+#it will now add "blue" at the end of the list
+
+#Extend Function
+states_of_america.extend(["so","yeah"])
+#it will not add another list at the end of states_of_america
+
+print(states_of_america)
+E                                                          N                                         D
+
+friends = ["Alice", "Bob", "Charlie", "David", "Emanuel"]
+
+import random
+
+#1 way
+bill = random.choice(friends)
+print(bill)
+
+#2 way
+random_bill = random.randint(0,4)
+print(friends[random_bill])
+
+    
