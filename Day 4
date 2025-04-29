@@ -45,6 +45,7 @@ states_of_america.extend(["so","yeah"])
 print(states_of_america)
 E                                                          N                                         D
 
+#Random string selector
 friends = ["Alice", "Bob", "Charlie", "David", "Emanuel"]
 
 import random
@@ -57,4 +58,90 @@ print(bill)
 random_bill = random.randint(0,4)
 print(friends[random_bill])
 
-    
+E                                                                   N                                               D
+
+#How nesting works
+
+list_1 = ["oye","s","hello"]
+list_2 = ["umm","yeah","some shit"]
+
+list_3 = [list_2,list_1]
+
+print(list_3[1][1]) #will print 2nd string of 2nd list(list2)  [1] = list_2 and the one next [1] = 2nd string in list 2    
+
+E                                                                     N                                                    D
+
+#Final Day ROCK PAPER SCISSORS
+
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+user = int(input("Type 0 for rock , 1 for paper , 2 for scissors:"))
+if user == "0":
+    print(rock)
+elif user == "1":
+    print(paper)
+elif user == "2":
+    print(scissors)
+
+
+#now for computer
+
+print("Computer chose:")
+
+RPS = [rock , paper , scissors]
+
+computer = random.choice(RPS)
+
+print(computer)
+
+if user > 2 or user < 0:
+    print("you typed an invalid number . You lose")
+elif user == "0":
+    if computer == rock:
+        print("Draw")
+    if computer == paper:
+        print("You lose")
+    if computer == scissors:
+        print("you win")
+elif user == "1":
+    if computer == rock:
+        print("You win")
+    if computer == paper:
+        print("Draw")
+    if computer == scissors:
+        print("You lose")
+elif user == "2":
+    if computer == rock:
+        print("You lose")
+    if computer == paper:
+        print("you win")
+    if computer == scissors:
+        print("Draw")
+
+
