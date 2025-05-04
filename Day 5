@@ -1,0 +1,90 @@
+#For loops
+fruits = ["Apple", "Peach", "Pear"]
+for fruit in fruits:
+    print(fruit)
+
+E                                                                      N                                                  D
+
+#FINDING HIGHEST SCORE
+student_scores = [150, 142, 185, 120, 171, 184, 149, 24, 59, 68, 199, 78, 65, 89, 86, 55, 91, 64, 89]
+
+#1st way
+print(max(student_scores))
+
+#2nd way
+max_score = 0
+for score in student_scores:
+    if score > max_score :
+        max_score = score
+
+print(max_score)
+
+
+E                                                                      N                                                  D
+
+#Range functions 
+#Range function in For Loops
+
+sum_number = 0
+for number in range(1,101,):
+    sum_number += number
+
+print(sum_number)
+
+E                                                                      N                                                  D
+
+#Password Generator
+
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters = int(input("How many letters would you like in your password?\n"))
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+print("Your password is :")
+
+#Easy level
+
+import random
+
+user_letters = random.sample(letters , nr_letters)                    #random.sample is used to select multiple non-repeated items from a list
+user_numbers = random.sample(numbers , nr_numbers)
+user_symbols = random.sample(symbols , nr_symbols)
+solong = (user_numbers + user_symbols + user_letters)
+
+print("".join(solong))                                                   #"".join() is used to join strings from list 
+
+#Hard Level [Shuffling the characters]
+
+random.shuffle(solong)                                               #random.shuffle() is used to shuffle items in a list
+
+
+print("".join(solong))                                                   
+
+
+#if you dont want to use the "".join() then use
+password = ""
+for char in solong:
+    password += char
+
+print(password)
+
+
+E                                                                      N                                                  D
+
+
+
+
+
+
+
+
+
+
+
+
+
