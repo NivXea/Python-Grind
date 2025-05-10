@@ -1,0 +1,6 @@
+#How to create your own function
+
+def my_function():
+....print("Hello")
+my_function ------> this will print "Hello"
+
