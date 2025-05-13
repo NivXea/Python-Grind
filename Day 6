@@ -4,3 +4,10 @@ def my_function():
 ....print("Hello")
 my_function ------> this will print "Hello"
 
+#While Loops
+
+While any_condition_is_True :
+  #Do this
+  #Do that
+
+#Jump Into Reeborgs world and try debugging the infinite loop part after day 15
