@@ -1,0 +1,2 @@
+#How to wrap up a list(have 25 index)
+just go and use modulo operator(%) remainder one.... helps a lot like shifting z by 25 letters
