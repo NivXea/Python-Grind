@@ -1,0 +1,13 @@
+#Python Dictionaries
+Dic = { "hey" : "Hello" , etc} 
+print(Dic["hey"]) ----> "Hello"
+
+Dictionary contains of "Key" : "Value"
+so ; Print(name_of_dictionary[key]) -----> Value
+
+#Edit an item in dictionary
+Name_of_dictionary[Key] = New Value
+
+#Looping in a dictionary 
+For things in name_of_dictionary:
+  print(things) -----------> will give all keys and not values
