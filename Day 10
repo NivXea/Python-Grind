@@ -1,0 +1,59 @@
+#Functions with outputs
+
+def format_name(f_name , l_name):
+    f_name = input("First name : ").title()
+    l_name = input("Last Name : ").title()
+    combine_names = f_name + " " + l_name
+    return combine_names -----------------------------------------------> This return helps in storing data #THUMB RULE : Use return inside function and print outside...
+print(format_name("AKSHAY","SINGH"))
+
+
+#If we have 2 functions and we use "return" rather than print then output of 1 can become input for second but with print its nothing
+for ex:
+def fn_1(Text)
+  return Text + Text
+def fn_2(Text)
+  return Text.title()
+
+then output = fn_2(fn_1("HeLLo)
+print(output) ------------------------>"Hellohello"   #The real use of return fn.............
+
+
+######## Calculator Project ###3
+def add(n1, n2):
+    return n1 + n2
+
+def subtract(n1 , n2):
+    return n1 - n2
+
+def multiply(n1 , n2):
+    return n1 * n2
+
+def divide(n1 , n2):
+    return n1 / n2
+
+operations = {"+" : add , "-" : subtract , "*" : multiply , "/" : divide}
+
+game_over = True
+while game_over:
+    first_number = int(input("Enter the 1st Number: "))
+    while 3>2: -------------------------------------------------------------> #Another while loop is used so that first_number is not resetted rather assigned to output..
+        operators = input('''Choose The Operation from the following :-
+        +
+        -
+        *
+        / \n''')
+        second_number = int(input("Enter the 2nd Number: "))
+
+        output = operations[operators](first_number , second_number)
+        print(output)
+
+        again = input(f"Type y to perform operation with {output} or type n to start a new calculator : ").lower()
+        if again == "y":
+            first_number = output
+        elif again =="n":
+            print("\n"*20)
+
+
+
+
