@@ -55,5 +55,8 @@ while game_over:
             print("\n"*20)
 
 
+other way rather than using 2 while loops can be to define a function and call it within itself #Recurrsion
+
+
 
 
