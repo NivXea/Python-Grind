@@ -34,3 +34,41 @@ travel_log = {
 }
 
 print(travel_log["Germany"]["cities_visited"][2]) -------> "Stuttgart"
+
+
+
+#####  BLIND BIDDING PROJECT ####
+from art import logo
+print(logo)
+
+bids = {}
+game_over = True
+while game_over:
+
+
+    # TODO-1: Ask the user for input
+
+    name = input("Type you name:")
+    price = int(input("Enter you bid: $"))
+    # TODO-2: Save data into dictionary {name: price}
+
+
+    bids[name] = price
+
+
+
+
+    # TODO-3: Whether if new bids need to be added
+    new_bid = input("Is there any another Bidder. Type Yes or No : ").lower()
+    if new_bid == "no":
+        game_over = False
+    elif new_bid == "yes":
+        print("\n"*20)
+# TODO-4: Compare bids in dictionary
+
+
+highest_bidder = max(bids, key=bids.get)
+
+highest_bid = bids[highest_bidder]
+
+print(f"The Winner is : {highest_bidder} with a bid of ${highest_bid}")
