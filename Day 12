@@ -1,0 +1,76 @@
+#Local Scope and Global Scope
+
+def health():
+  player_health = 2
+  print(player_health)
+
+health() ---------> 2
+
+but if we try to print outside
+print(player_health) -----------> This is undefined
+
+but in #GLOBAL SCOPE
+
+player_health = 10
+def health()
+  print(player_health) = 10
+
+health() -----------------------> 10
+also
+print(player_health) ------------> 10
+; player_health is accessable to all.....
+
+
+
+### NUMBER GUESSING GAME ###
+from art import logo
+import random
+print(logo)
+
+counting = []
+for num in range(1,101):
+    counting.append(num)
+
+random_number = int(random.choice(counting))
+print(random_number)
+
+#Begin with greet
+print("Welcome to Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100.".title())
+choose_difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+
+#Lives
+
+player_lives = 0
+if choose_difficulty == "easy":
+    player_lives += 10
+elif choose_difficulty == "hard":
+    player_lives += 5
+
+#Right or wrong
+game_over = False
+
+while not game_over:
+    print(f"you have {player_lives} attempts remaining. Guess a number".title())
+    guessed_number = int(input("Make a guess: "))
+    def wrong_guess():
+        global player_lives
+        if guessed_number != random_number and player_lives != 1:
+            player_lives -= 1
+            if guessed_number > random_number:
+                print("Too high")
+            elif guessed_number < random_number:
+                print("Too low")
+        elif guessed_number == random_number:
+            global game_over
+            print(f"You Win. the number was {random_number}.".title())
+            game_over = True
+
+        elif player_lives == 1:
+            print("you ran out of attempts .you lose ".title())
+            game_over = True
+
+    wrong_guess()
+
+
+
