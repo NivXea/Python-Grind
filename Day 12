@@ -1,4 +1,4 @@
-#Local Scope and Global Scope
+#Local Scope and Global Scope#
 
 def health():
   player_health = 2
