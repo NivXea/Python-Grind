@@ -1,0 +1,45 @@
+## OOP ##
+It consist of Method and Attributes
+
+Attributes are much like Var and Methods are much like Functions
+
+Class Car()
+  speed = 0 ------> An Attribute/Var which can be changed.
+  brake() --------> Method / Function which is to be executed.
+
+object = car()
+
+### My Coffee Machine Project ###
+from menu import  Menu
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+
+menu = Menu()
+coffee = CoffeeMaker()
+money = MoneyMachine()
+
+game_over = False
+while not game_over:
+    order_name = input("What Would You Like To Have. (Espresso/Latte/Cappuccino): ")
+    #Reporting
+    if order_name == "report":
+        coffee.report()
+        continue
+
+    #Find Drink
+    drink = menu.find_drink(order_name)
+
+    #Check Whether Resources are sufficient or not
+
+    resources = coffee.is_resource_sufficient(drink)
+    if not resources:
+        game_over = True
+    elif resources:
+        #Money Time
+        money_paid = money.make_payment(drink.cost)
+        if money_paid:
+            final_coffee = coffee.make_coffee(drink)
+        else:
+            print("Sorry that's not enough money. Money Refunded.")
+
+
