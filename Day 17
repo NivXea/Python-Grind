@@ -1,0 +1,32 @@
+## Creating Classes In Python ##
+_______________________________________
+#Constructor or Adding Attributes to a Class
+
+class User:
+  def __init__(self , user_id , username)
+    self.id = user_id
+    self.username = username
+
+User1 = User("001" , "Akshay") ------> User1 is a user with id '001' and username'AKshay'
+
+print(User1.id) ----> 001
+print(User1.username) ----> Akshay
+
+_____________________________________________________________________________________________________
+#Adding Methods TO a Class
+class User:
+  def __init__(self , user_id , username)
+    self.id = user_id
+    self.username = username
+
+  def follow(self , user):
+    user.followers += 1
+    self.following += 1
+
+User1.follow(User2)
+print(User1.followings) -----> 1
+print(User2.followers) ------> 1
+
+__________________________________________________________________________________________________________
+
+
