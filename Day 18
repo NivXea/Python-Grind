@@ -5,4 +5,24 @@ from Module....(a very long name) import Cute
 #instead do it like
  import Module.... as M
 #Now you can use it like Myself = M.Cute()
+____________________________________________________
+/// SpiroGraph ///
+
+def random_colors():
+    r = random.randint(0 , 255)
+    g = random.randint(0 , 255)
+    b = random.randint(0 , 255)
+    return r , g , b
+
+angle = []
+for _ in range(18):
+    angle.append(_*24)
+
+for n in range(17):
+    r , g ,b = random_colors()
+    tim.color(r , g , b)
+    tim.setheading(angle[n])
+    tim.circle(100)
+_____________________________________________________
+
 
