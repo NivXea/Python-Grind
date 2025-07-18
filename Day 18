@@ -25,5 +25,44 @@ for n in range(17):
     tim.setheading(angle[n])
     tim.circle(100)
 _____________________________________________________
+/// The hirst painting Project ///
+import turtle as t
+from random import randint
 
+
+tim = t.Turtle()
+tim.hideturtle()
+tim.penup()
+screen = t.Screen()
+screen.colormode(255)
+
+
+extracted_colors = [(202, 164, 109), (238, 240, 245), (150, 75, 49), (223, 201, 135), (52, 93, 124), (172, 154, 40), (140, 30, 19), (133, 163, 185), (198, 91, 71), (46, 122, 86), (72, 43, 35), (145, 178, 148), (13, 99, 71), (233, 175, 164), (161, 142, 158), (105, 74, 77), (55, 46, 50), (183, 205, 171), (36, 60, 74), (18, 86, 90), (81, 148, 129), (148, 17, 20), (14, 70, 64), (30, 68, 100), (107, 127, 153), (174, 94, 97), (176, 192, 209)]
+tim.goto(-200 , 0)
+#Drawing Dots in a straight Line
+def dotted_painting_line():
+    new_color = extracted_colors[randint(0, 26)]
+    tim.color(new_color)
+    tim.dot( 20 , new_color)
+    tim.fd(50)
+
+#X and Y coordinates of turtle
+y_cor = 0
+def tele_up():
+    global y_cor
+    x_cor = -200
+    y_cor += 50
+    tim.goto(x_cor , y_cor)
+
+#Now 10x10 Straight lines
+def make_painting():
+    for _ in range(10):
+        dotted_painting_line()
+    tele_up()
+
+for _ in range(10):
+    make_painting()
+
+screen.exitonclick()
+print(sceen)
 
