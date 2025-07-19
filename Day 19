@@ -38,5 +38,43 @@ screen.onkey(fun=clear , key="c")
 
 screen.exitonclick()
 _____________________________________________________________________________________________
+// Turtle Race //
 
+def game():
+    from turtle import Turtle , Screen
+    import random
+
+    screen = Screen()
+    screen.setup(500 , 400)
+    user_bet = screen.textinput("Make you bet" , "Which turtle will win the race? Enter the color").lower()
+
+    #Making 6 turtles
+    colors = ["red", "blue", "green", "orange", "purple", "yellow"]
+    y_positions = [-100, -60, -20, 20, 60, 100]
+    turtles = []
+
+    for index in range(6):
+        t = Turtle(shape="turtle")
+        t.penup()
+        t.color(colors[index])
+        t.goto(x=-230, y=y_positions[index])
+        turtles.append(t)
+
+    #Moving them at a random pace
+    is_race_on = True
+    while is_race_on:
+        for turtle in turtles:
+            random_dist = random.randint(0, 10)
+            if turtle.xcor() > 230:
+                is_race_on = False
+                if user_bet == turtle.pencolor():
+                    print("You have won the bet".title())
+                else:
+                    print(f"Sorry you lost the bet. {turtle.pencolor().title()} turtle has won the race.")
+            else:
+                turtle.fd(random_dist)
+
+    screen.exitonclick()
+
+game()
 
