@@ -1,0 +1,42 @@
+/// Key Binding with turtle ///
+#Use the method listen()
+tim = Turtle()
+screen = Screen()
+screen.liten()
+#Now use onkey to bind keys to function
+tim.onkey(fun = move_forward , key = "space")
+__________________________________________________________
+///Etch A Sketch Game///
+from turtle import Turtle , Screen
+
+tim = Turtle()
+screen = Screen()
+screen.listen()
+
+#Movements
+def move_forward():
+    tim.fd(20)
+
+def clockwise():
+    tim.right(10)
+
+def anti_clockwise():
+    tim.left(10)
+
+def backwards():
+    tim.bk(20)
+
+#Clearing the Screen
+def clear():
+    screen.reset()
+    
+screen.onkey(fun= move_forward , key="w")
+screen.onkey(fun=backwards , key="s")
+screen.onkey(fun=clockwise , key="d")
+screen.onkey(fun=anti_clockwise , key="a")
+screen.onkey(fun=clear , key="c")
+
+screen.exitonclick()
+_____________________________________________________________________________________________
+
+
