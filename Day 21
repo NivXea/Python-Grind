@@ -1,0 +1,79 @@
+/// Creating Snake Game Part 2 ///
+________________________________________________________________________________
+#Class Inheritance 
+class Animal:
+def __init__(self):
+  self.num_eyes = 2
+
+def breathe(self):
+  print("Inhale and Exhale")
+
+
+class Fish(Animal): #Here Animal Is A SUPER CLASS
+    
+    def __init__(self):
+      super().__init__()
+
+    def breathe(self):
+      super().breathe()
+      print("UnderWater")
+
+    def swin(self):
+      print("moving in water")
+
+fish = Fish()
+fish.breathe() ------> "Inhale and Exhale" + "UnderWater"
+
+________________________________________________________________________________________________________________________________
+#Food Class
+from turtle import Turtle
+import random
+
+class Food(Turtle):
+
+    def __init__(self):
+        super().__init__()
+        self.shape("circle")
+        self.penup()
+        self.shapesize(stretch_wid=10 , stretch_len=10)
+        self.color("blue")
+        self.speed("fastest")
+        self.refresh()
+
+    def refresh(self):
+        random_x = random.randint(-280, 280)
+        random_y = random.randint(-280, 280)
+        self.goto(x=random_x, y=random_y)
+
+______________________________________________________________________________________________________________________________________
+# Scoreboard Class
+from turtle import Turtle
+
+ALIGNMENT = 'center'
+FONT = ("courier", 16, "normal")
+
+class Scoreboard(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.score = 0
+        self.penup()
+        self.goto(0,270)
+        self.hideturtle()
+        self.color("white")
+
+    def game_over(self):
+        self.goto(0,0)
+        self.write("GAME OVER" , align=ALIGNMENT , font=FONT)
+
+    def update_score(self):
+        self.clear()
+        self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+
+    def increase_score(self):
+        self.score += 1
+        self.update_score()
+_____________________________________________________________________________________________________
+
+        
+    
+  
