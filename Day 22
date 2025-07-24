@@ -1,0 +1,168 @@
+/// Pong Game ///
+
+_______________________________________________________________________________________________________________________________________________________________________
+/// Paddle Class
+from turtle import Turtle , Screen
+
+class Paddle(Turtle):
+    # Paddle
+    def __init__(self, position):
+        super().__init__()
+        self.screen = Screen()
+        self.shape("square")
+        self.goto(position)
+        self.penup()
+        self.color("white")
+        self. shapesize(stretch_len=1, stretch_wid=5)
+
+    # Functions to make paddle move Up and Down
+    def up(self):
+        new_y = self.ycor() + 30
+        self.goto(self.xcor(), new_y)
+
+    def down(self):
+        new_y = self.ycor() - 30
+        self.goto(self.xcor(), new_y)
+
+    def reset_position(self , position):
+        self.goto(position)
+______________________________________________________________________________________________________________________________________________________________________
+/// Ball Class
+from turtle import Turtle
+
+class Ball(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.penup()
+        self.shape("circle")
+        self.color("white")
+        self.x_move = 5
+        self.y_move = 5
+        self.move()
+
+
+    def move(self):
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(new_x, new_y)
+
+
+
+    #Detecting collision on top and bottom walls
+    def collision(self):
+        if self.ycor() > 280 or self.ycor() < -280:
+            self.y_move *= -1
+
+
+    def bounce(self):
+        self.x_move *= -1
+
+    def reset_position(self):
+        self.goto(0,0)
+        self.x_move = 5
+        self.y_move = 5
+______________________________________________________________________________________________________________________________________________________________________
+/// Scoreboard Class
+from turtle import Turtle
+ALIGNMENT = "center"
+FONT = ("courier" , 24 , "normal")
+class Scoreboard(Turtle):
+
+    def __init__(self , score , position):
+        super().__init__()
+        self.penup()
+        self.color("white")
+        self.score = score
+        self.hideturtle()
+        self.goto(position)
+        self.clear_score()
+
+    def clear_score(self):
+        self.clear()
+        self.write(arg=f"{self.score}", align=ALIGNMENT, font=FONT)
+
+    def increase_score(self):
+        self.score += 1
+        self.clear_score()
+______________________________________________________________________________________________________________
+// Main File //
+from turtle import Screen , Turtle
+import time
+from paddle import Paddle
+from ball import Ball
+from scoreboard import Scoreboard
+
+#Screen
+screen = Screen()
+screen.setup(width=800 , height=600)
+screen.bgcolor("black")
+screen.title("Pong Game")
+screen.listen()
+screen.tracer(0)
+
+#Middle line
+dashed_line = Turtle()
+dashed_line.color("white")
+dashed_line.hideturtle()
+dashed_line.penup()
+dashed_line.goto(0 , -300)
+dashed_line.setheading(90)
+
+for _ in range(500):
+    dashed_line.pendown()
+    dashed_line.fd(10)
+    dashed_line.penup()
+    dashed_line.fd(10)
+
+
+#Paddles
+r_paddle = Paddle((350,0))
+l_paddle = Paddle((-350,0))
+screen.onkey(fun=r_paddle.up , key= "Up")
+screen.onkey(fun= r_paddle.down, key="Down" )
+screen.onkey(fun=l_paddle.up , key="w" )
+screen.onkey(fun=l_paddle.down, key="s" )
+
+#Ball
+ball = Ball()
+
+
+#scoreboard things
+r_score = 0
+l_score = 0
+
+r_scoreboard = Scoreboard(r_score , (100 , 250))
+l_scoreboard = Scoreboard(l_score , (-100 , 250))
+
+
+
+is_game_on = True
+while is_game_on:
+
+    time.sleep(0.02)
+    screen.update()
+    ball.move()
+    ball.collision()
+
+
+    #Right paddle collision
+    if ball.xcor() > 320 and r_paddle.distance(ball) < 50:
+        ball.bounce()
+
+    # Left paddle collision
+    if ball.xcor() < -320 and l_paddle.distance(ball) < 50:
+        ball.bounce()
+
+    #right paddle misses
+    if ball.xcor() > 400:
+        l_scoreboard.increase_score()
+        ball.reset_position()
+        r_paddle.reset_position((350,0))
+
+    if ball.xcor() < -400:
+        r_scoreboard.increase_score()
+        ball.reset_position()
+        l_paddle.reset_position((-350, 0))
+
+screen.exitonclick()
+________________________________________________________________________________________________________________________________
