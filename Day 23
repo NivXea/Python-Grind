@@ -41,6 +41,7 @@ class CarManager(Turtle):
         self.RANDOM_X = random.randint(320, 600)
         self.RANDOM_Y = random.randint(-260, 260)
         self.shape("square")
+        self.shapesize(1,2)
         self.penup()
         self.color(random.choice(COLORS))
         self.goto(self.RANDOM_X , self.RANDOM_Y)
