@@ -1,0 +1,39 @@
+/// Python File Reading ///
+#So create a .txt file in main file then in  main file
+
+with open("my_file.txt" , mode= "r/w/a") as file: 
+  #Different opening modes
+  1) Write(Allows to re-write the file) "w"
+  file.write("New text)
+  2) Append(Allows to append text to file) "a"
+  file.append("New Text")
+  3) Read(Only  Reads the file and hold the content inside it) "r"
+  content = file.read()
+  
+  print(contents)
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+// Absolute file Path and Relative File Path//
+
+/(root) --> work(Folder) ---> report.doc(file) , Project(Folder) ----> talk.ppt
+
+#The Absolute File Path Is: /work/Project/talk.ppt
+
+#The Relative File Path Assuming we are in Project folder : ./talk.ppt
+                                           work folder : ./Project/talk.ppt
+
+Here ./ represents to check in current file...
+
+#To access report.doc from Project Folder: ../report.doc
+
+Here ../ Takes Us To Parent Folder (Which Is Work for Project Folder)....
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
