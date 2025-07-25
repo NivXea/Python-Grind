@@ -1,0 +1,141 @@
+/// Turtle Crossing Capstone Project ///
+______________________________________________________
+// Player Class
+from turtle import Turtle
+
+STARTING_POSITION = (0, -280)
+MOVE_DISTANCE = 10
+FINISH_LINE_Y = 280
+
+
+class Player(Turtle):
+
+    def __init__(self):
+        super().__init__()
+        self.shape("turtle")
+        self.penup()
+        self.setheading(90)
+        self.goto(STARTING_POSITION)
+
+    def move(self):
+        if self.position() != (0 , FINISH_LINE_Y):
+            self.fd(MOVE_DISTANCE)
+
+    def reset(self):
+
+        self.goto(STARTING_POSITION)
+_________________________________________________________________________________________________________________________________________________________________________
+// CarManager Class
+from turtle import Turtle
+import random
+
+COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
+STARTING_MOVE_DISTANCE = 5
+MOVE_INCREMENT = 20
+
+
+class CarManager(Turtle):
+
+    def __init__(self):
+        super().__init__()
+        self.RANDOM_X = random.randint(320, 600)
+        self.RANDOM_Y = random.randint(-260, 260)
+        self.shape("square")
+        self.penup()
+        self.color(random.choice(COLORS))
+        self.goto(self.RANDOM_X , self.RANDOM_Y)
+        self.X_move = MOVE_INCREMENT
+        self.move()
+
+
+    def move(self):
+        new_x = self.xcor() - self.X_move
+        self.goto(new_x , self.ycor())
+__________________________________________________________________________________________________________________________________________________________________________________________
+// Scoreboard Class
+from turtle import Turtle
+FONT = ("Courier", 24, "normal")
+
+
+class Scoreboard(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.level = 1
+        self.penup()
+        self.hideturtle()
+        self.goto(-150,250)
+        self.update_level()
+
+    def update_level(self):
+        self.clear()
+        self.write(arg=f"Level {self.level} " , align="center" , font=FONT )
+
+    def increase_level(self):
+        self.clear()
+        self.level += 1
+        self.update_level()
+
+    def game_over(self):
+        self.goto(0,0)
+        self.clear()
+        self.write(arg= "GAME OVER" , align='center' , font=("Courier", 40, "normal"))
+        self.goto(0, -100)
+        self.write(arg=f"Your Final Level: {self.level}" , align='center' , font=FONT)
+__________________________________________________________________________________________________________________________________________________________________________________________
+// Main File
+import time
+import random
+from turtle import Screen
+from player import Player
+from car_manager import CarManager
+from scoreboard import Scoreboard
+
+screen = Screen()
+screen.setup(width=600, height=600)
+screen.listen()
+screen.tracer(0)
+
+
+#Player Movements
+player = Player()
+screen.onkey(fun= player.move , key="Up")
+
+#Scoreboard
+scoreboard = Scoreboard()
+Cars = []
+
+car_speed = 20
+
+game_is_on = True
+while game_is_on:
+    time.sleep(0.1)
+    screen.update()
+
+
+    #Spawning Cars
+    if random.randint(1,5) == 1:
+        car = CarManager()
+        car.X_move = car_speed
+        Cars.append(car)
+
+    #Moving Cars
+    for car in Cars:
+        car.move()
+        #Detecing collisions
+        if abs(player.xcor() - car.xcor()) < 20 and abs(player.ycor() - car.ycor()) < 20:
+            scoreboard.game_over()
+            game_is_on = False
+
+    #Increasing level
+    if player.ycor() >= 280:
+        scoreboard.increase_level()
+        car_speed += 10
+        player.reset()
+
+screen.exitonclick()
+_______________________________________________________________________________________________________________________________________________________________________________________--
+
+
+
+
+
