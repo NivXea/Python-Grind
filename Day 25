@@ -42,6 +42,25 @@ print(data[data.day =="Mon"]) -----> Mon 12 cloudy
 monday = data.[data.day == "Mon"]
 monday_temp = monday.temp
 print(monday_temp) -----------> 12
+__________________________________________________________________________________________________________________________________________________________
+// Looping Through a Data Frame //
+
+student_dict = {"students" : ["Angela" , "Dave"]
+                "score" : [ 78 , 87 ]
+}
+
+student_data = pandas.Dataframe(student_dict)
+
+for (index , row) in student_data.iterrows():
+  print(row) ----> will print: 0
+                               1
+                               2
+
+print(row) ------> will print: student Angela
+                               score 78
+
+                                student Dave
+                                score 87
 ________________________________________________________________________________________________________________________________________________________
 
 #To Make a Dataframe From Scratch
