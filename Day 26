@@ -41,10 +41,26 @@ import random
 new_dict = {student:random.randint(1,100) for student in names}
 passed_student = [student for student in new_dict if new_dict.get(student) > 60] ---> Will give the list of passes students whose score > 60...
 
+__________________________________________________________________________________________________________________________________________________________________________________________
+/// NATO PHOENETIC ALPHABET PROJECT ///
+import pandas
 
+#TODO 1. Create a dictionary in this format:
 
+with open("nato_phonetic_alphabet.csv") as file:
+    data = pandas.read_csv(file)
 
+nato_dict = {row.letter:row.code for (index,row) in data.iterrows()}
 
+user_name = input("Enter Your Name: ").upper()
+#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+
+list_of_char = list(user_name)
+
+nato_list = [nato_dict.get(letter) for letter in list_of_char ]
+print(nato_list)
+
+___________________________________________________________________________________________________________________________________________________________________________________________
 
 
 
