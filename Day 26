@@ -1,0 +1,36 @@
+/// Lists and Dictionary Comprehension ///
+_________________________________________________________________________________________________________________________________________________________
+// List Comprehesion
+
+list = [1 , 2 , 3]
+new_list = [new_item for item in list]  ----> it works like every item in list is replaced by new item 
+
+for ex: numbers = [ 1 , 2 , 3 ]
+
+new_numbers = [ n+1 for n in numbers] ---> every item in numbers is n and it is replaced by n+1.. 
+new_numbers = [2 , 3 , 4]
+
+another ex:
+range_num = range(1,5)
+new_num = [ n*2 for n in range_num] 
+new_num = [2,4,6,8]                         #List Comprehension works on all sequences and not restricted on lists only....
+
+// Conditional list Comprehension
+
+new_list = [ new_item for item in list if condition]
+
+for ex: names = ["Alex" , "Dave" , "Beth" , "Carolina"]
+
+new_names = [name for name in names if len(name) < 5]
+new_names = ["Alex" , "Dave" , "Beth"]
+
+
+
+
+
+
+
+
+
+
+
