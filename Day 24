@@ -29,6 +29,16 @@ Here ./ represents to check in current file...
 Here ../ Takes Us To Parent Folder (Which Is Work for Project Folder)....
 __________________________________________________________________________________________________________________________________________________________________________________________
 
+/// REMOVING BLANK SPACES FROM A STRING ///
+
+with open("file.txt") as file:
+  content = file.readlines()
+  stripped_content = [ line.strip() for line in content ]  # .strip() is a function which removed blank spaces in a string...
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
 
 
 
