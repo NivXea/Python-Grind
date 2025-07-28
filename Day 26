@@ -24,7 +24,22 @@ for ex: names = ["Alex" , "Dave" , "Beth" , "Carolina"]
 new_names = [name for name in names if len(name) < 5]
 new_names = ["Alex" , "Dave" , "Beth"]
 
+___________________________________________________________________________________________________________________________________________________________________________________________
 
+/// Dictionary Comprehension 
+
+new_dict = {new_key:new_value for (key,value) in dict.items()}
+
+
+and for Conditional Dictionary Comprehension 
+
+new_dict = {new_key:new_value for (key,value) in dict.items() if condition}
+
+For Ex:
+names = ["Alex" , "Dave" , "Caroline" , "Freddie" , "Eleanor"]
+import random
+new_dict = {student:random.randint(1,100) for student in names}
+passed_student = [student for student in new_dict if new_dict.get(student) > 60] ---> Will give the list of passes students whose score > 60...
 
 
 
