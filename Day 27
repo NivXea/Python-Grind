@@ -1,0 +1,115 @@
+// Tkinter , *args , **kwargs , GUI //
+___________________________________________________________________________________________________________________________________________________________________________________________
+/ Tkinter 
+
+import tkinter
+
+window = tkinter.Tk()
+window.title("My First GUI Program")
+window.minsize(width= 500 , height= 300)
+
+#Label
+my_label = tkinter.Label(text= "I Am A Label")
+my_label.pack() --------------------------------------> This is a must method to ensure label is displayed on screen
+
+#To change some properties use .config()
+my_label.config(text="new Text")
+
+#Button -----> An interactive button appears on screen
+def clicked():
+    user_text = user_input.get()
+    my_label.config(text=user_text)
+
+my_button = Button(text="Click Me" , command= clicked)
+my_button.pack()
+
+#Entry
+user_input = Entry(width=10) #User can provide input on screen
+user_input.pack()
+
+window.mainloop() ----> It is just like .exitonclick() such that window stays open...
+________________________________________________________________________________________________________________________________________________________________________________________
+/// Grid() Method ///
+
+#It divides the screen into a grid of rows and column
+my_label.grid(row=0 , column=0)
+my_button.grid(row=1,column=1)
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+// Padding //
+#It adds more spacing around the widget
+my_label.config(padx=20 , pady=20) ---> will add 20pixels of space around the label...
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+
+// *args 
+
+def add(*args):
+    m = 0
+    for n in args:
+        m += n
+    return m
+
+my_sum = add(2,3,4,5)
+print(my_sum)
+
+=> It helps us such that we can enter unlimited positional argumenst.....
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+// **kwargs
+def calculate(n ,**kwargs):
+    print(kwargs)
+
+    n += kwargs["add"]
+    n *= kwargs["multiply"]
+    return n
+
+print(calculate(2 , add=5 , multiply= 7))
+
+==> Enter as many positional arguments as you want..
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+/// Miles To Kilometer Converter ///
+from tkinter import *
+
+window = Tk()
+window.title("Miles To Kilometer Converter")
+window.minsize(width= 500 , height= 300)
+window.config(padx=100 , pady=100)
+
+#Convert
+def convert():
+    ml = float(user_input.get())
+    kilo = round(ml * 1.6 , 2)
+    my_label.config(text=kilo)
+
+#Label
+my_label = Label(text=0)
+my_label.grid(row=1 , column=1)
+my_label.config(padx=20 , pady=20)
+
+#Miles , km and "Is equal to"
+miles = Label(text="Miles")
+miles.grid(row=0 , column= 2)
+miles.config(padx=20 , pady=20)
+
+km = Label(text= "Kilometers")
+km.grid(row=1 , column=2)
+km.config(padx=20 , pady=20)
+
+is_equal_to = Label(text="Is Equal To")
+is_equal_to.grid(row=1,column=0)
+is_equal_to.config(padx=20 , pady=20)
+
+user_input = Entry(width=10)
+user_input.grid(row=0, column=1)
+
+button = Button(text="Calculate" , command= convert)
+button.grid(row=2 , column=1)
+button.config(padx=20 , pady=20)
+
+window.mainloop()
+
+
