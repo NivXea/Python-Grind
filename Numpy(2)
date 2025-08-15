@@ -1,0 +1,53 @@
+/// Numpy Arrays Properties ///
+______________________________________________________________________________________________________________________________________________________________________________________________
+//Attributes of an Array
+1) Shape ( array.shape)
+it return the shape of array in form of (row,column)
+
+2) Size (array.size)
+it return the total number of elements in an array (row*column)
+
+3) ndim (array.ndim)
+it return and tell which dimensional array it is..
+
+4) dtype (array.dtype)
+it return and tells the data type of element inside an array (int , float , str)
+
+5) astype (array.astype( new_type )
+it converts the element inside an array to a new data type
+_____________________________________________________________________________________________________________________________________________________________________________________________
+//Mathematical Operations In Arrays
+
+/Using Arithmatic Functions
+
+import numpy as np
+arr = np.array([10 , 20 , 30])
+
+print(arr + 5) --> [ 15 25 35 ]
+print(arr * 2) --> [ 20 40 60 ]
+print(arr ** 2) -> [ 100 400 900 ] 
+
+/Using Aggregation Functions
+
+import numpy as np
+arr = np.array([10,20,30,40,50])
+
+print(np.sum(arr)) --> 150
+print(np.mean(arr)) -> 30
+print(max(arr)) -----> 50
+print(min(arr)) -----> 10
+print(np.std(arr)) --> 14.142
+print(np.var(arr)) --> 200
+
+#This is why numpy is must as it makes it so easy to do maths , no loop required...
+
+
+
+
+
+
+
+
+
+
+
