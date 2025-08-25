@@ -1,0 +1,32 @@
+import cv2
+
+//How to Load an Image
+image = cv2.imread("image.png") //.imread() opens and read the image
+_______________________________________________________________________________________________________________________________________________________________________
+//How to display an image on screen
+cv2.imshow("Windows Title" , image) // Shows the Image
+cv2.waitkey(0) //Waits for a key
+cv2.destroyAllWindows() // As a key inputs , screen is closed
+_______________________________________________________________________________________________________________________________________________________________________
+// Saving an Image
+success = cv2.imwrite("Output.png",image)
+_______________________________________________________________________________________________________________________________________________________________________
+//Dimensions of Image
+print(image.shape) --> Will Return a tuple (Width , Height , Color Channels)
+_______________________________________________________________________________________________________________________________________________________________________
+//Converting colorful image into Grayscale
+image = cv2.imread("IMG.jpg" , -1)
+
+if image is not None:
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) // .cvtColor is a method and cv2.COLOR_BGR2GRAY is necessary
+    cv2.imshow("Gray Image", gray)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print("Error: Image not found or unable to load.")
+_______________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
