@@ -1,0 +1,67 @@
+/// Advanced Numpy ///
+___________________________________________________________________________________________________________________________________________________________________________________________
+// Insert
+
+np.insert( arr , index , value , axis)
+
+arr -> In which array to pass the new value
+index -> Where to pass the new value
+value -> Which new value to insert
+axis --> axis = 0: to insert row wise
+         axis = 1: to insert column wise
+
+arr = np.array([10,20,30])
+new_arr = np.insert(arr , 2 , 100 , axis=0)
+
+print(new_arr) --> [10 20 100 30]
+
+another_arr = np.insert(arr , 2 , 100 , axis=1)
+
+print(another_arr) ---> Error cuz Axis=1 is only for multi-dimensional array...
+___________________________________________________________________________________________________________________________________________________________________________________________
+// Append
+This just add a new value at the end of array just like python lists....
+
+arr = np.array([10,20])
+new_arr = np.append(arr , [50,60])
+
+print(new_arr) --> [10 20 50 60]
+___________________________________________________________________________________________________________________________________________________________________________________________
+// Concatenating 2 Arrays
+import numpy as np
+
+arr1 = np.array([10 , 20 ,30])
+arr2 = np.array([40 , 50 ,60])
+
+new_arr = np.concatenate((arr1, arr2), axis = 0)
+
+print(new_arr) ---> [ 10 20 30 40 50 60]
+___________________________________________________________________________________________________________________________________________________________________________________________
+// Delete
+import numpy as np
+
+arr1 = np.array([[1, 2, 3],[4, 5, 6]])
+
+new_arr = np.delete(arr1, 1, axis=0)
+print(new_arr) --> Removes the 2nd Row
+
+if axis = 1: will remove the 2nd column
+if axis = None: will remove the 2nd element from the flattened Array..
+___________________________________________________________________________________________________________________________________________________________________________________________
+// Stacking
+
+arr1 = np.array([1,2,3])
+arr2 = np.array([4,5,6])
+
+arr_v = np.vstack((arr1, arr2)) #Stacks Vertically like multi-Dimensional array...
+arr_h = np.hstack((arr1, arr2)) #Stacks horizonatally like 1-D array...
+
+print(arr_v)
+print(arr_h) 
+__________________________________________________________________________________________________________________________________________________________________________________________
+// Splitting
+np.split(arr , n) --> Splits an array into n equal parts where n<=len(array)..
+
+
+
+
