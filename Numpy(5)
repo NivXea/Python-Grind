@@ -1,0 +1,59 @@
+// Broadcasting
+Helps To perform mathematical operation faster without using loops & Expands Smaller array to match the operation
+
+arr = np.array([1,2,3]) 
+result = arr + 10 
+print(result) --> [ 11 12 13 ] #Numpy expanded 10 to [10,10,10] to perform the operation
+
+Now doing it in 1-D to 2-D..
+
+matrix = np.array([[1,2,3],[4,5,6]])
+vector = np.array([10,20,30])
+result = matrix + vector #It expanded vector to a 2-D array to match dimension and perform the operation
+
+print(result) --> [[11 22 33]
+                   [14 25 36]]
+__________________________________________________________________________________________________________________________________________________________________________________________
+// Vectorization
+
+arr = np.array([10,20,30])
+
+multiplied = arr * 3
+
+print(multiplied) --> [ 30 60 90 ] and It will calculate million numbers in mili seconds , loops are slower
+_________________________________________________________________________________________________________________________________________________________________________________________
+// Handling Missing Values
+
+#np.isnan() --> Detects missing values in an array and return a boolean (True for NAN values)
+
+NAN Stands for Not A Number
+
+arr = np.array([1,2, np.nan , 3 , 4 , np.nan])
+
+print(np.isnan(arr)) --> [ False False True  False  False  True ] Jaha True aarha h waha pe missing value h or not a number
+
+
+Now How to replace those missing values...
+
+#nan_to_num() -> Replaces missing values with a specific value (default = 0)
+
+cleaned_array = np.nan_to_num(arr , nan=10) 
+print(cleaned_array) ---> [ 1 2 10 3 4 10 ]
+
+#n.isinf() --> Return a boolean and detects whether a inf value is present in array or not (True for inf value)
+
+arr = np.array([ 1 , 2 , np.inf , 3 , 4 , -np.inf ])
+print(np.isinf(arr)) --> [ False False True False False True ]
+
+and to replace these inf value 
+
+cleaned_arr = np.nan_to_num(arr , posinf = 100 , neginf = -100) -> Replaces +ve inf value with 100 and -ve inf value with -100
+print(cleaned_arr) --> [ 1 2 100 3 4 -100 ]
+
+
+
+
+
+
+
+
