@@ -1,0 +1,46 @@
+import cv2
+______________________________________________________________________________________________________________________________________________________________________
+// Resizing Images
+
+resized = cv2.resize(image , dsize , fx , fy , interpolination)
+#dsize = (width , height) in pixels
+#fx and fy are scaling factors (optional)
+______________________________________________________________________________________________________________________________________________________________________
+// Slicing (cropping)
+cropped_image = image[ startY:endY , startX:endX] ///This is similar to Python list slicing from start to end-1...
+_______________________________________________________________________________________________________________________________________________________________________
+// Image Flipping and Rotation
+
+M = cv2.getRoationMatrix2D(center , angle , scale) //Returns a formula
+//Center is (width//2 , height//2)
+//angle is by how much we wanna rotate the img in degrees
+// scale is how much to zoom in/out , 1.0 is default
+And get height , width by image.shape attribute....
+
+Now,
+rotated_image = cv2.warpAffine(image , M , (width , height))
+//image is original image
+//M is the formula created by method mentioned above
+// (width, height) is the new dimensions of image , usually same but incase if you wanna change them use it
+
+For Flipping
+flipped = cv2.flip(image , flipcode)
+// Flipcodes are 0:Flip Vertically , 1: Flip Horizontally , -1: Flip both Horizontally and Vertically.
+
+Ex-
+image = cv2.imread("IMG-20250701-WA0010.jpg" , -1)
+
+if image is not None:
+    print("Image loaded successfully")
+    M = cv2.getRotationMatrix2D((image.shape[1] / 2, image.shape[0] / 2), 90, 1)
+    rotated_image = cv2.warpAffine(image, M, (image.shape[1], image.shape[0]))
+    cv2.imshow("Original Image", image)
+    cv2.imshow("Rotated Image", rotated_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print("Error: Image not found or unable to load.")
+
+    
+_______________________________________________________________________________________________________________________________________________________________________
+
