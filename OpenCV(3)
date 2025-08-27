@@ -1,0 +1,140 @@
+import cv2
+________________________________________________________________________________________________________________________________________________________________________
+DRAWING SHAPES IN OpenCV:
+
+LINE IN OpenCV:
+cv2.line(img , pt1 , pt2 , color , thickness)
+/*
+img:source img
+pt1: 1st end of line
+pt2: 2nd end of line
+color: color of line
+thickness: thickness of line in pixels
+*/
+For Ex- 
+image = cv2.imread("IMG-20250701-WA0010.jpg" , -1)
+
+if image is not None:
+    print("Image loaded successfully")
+    cv2.line(image , (0,0) , (150,150) , (170 , 25 ,45) , 5)
+    cv2.imshow("Image with Line", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print("Error: Image not found or unable to load.")
+
+RECTANGLE IN OpenCV:
+cv2.rectangle(img , pt1 , pt2 , color , thickness) 
+/*
+pt1: top left corner of rect
+pt2: bottom right corner of rect
+thickness = -1 if you want to fil it.
+*/
+
+CIRCLE IN OpenCV:
+cv2.circle(img , centre , radius , color , thickness)
+/*
+all the terms and parameters explains themselves
+*/
+
+ADDING TEXT IN OpenCV:
+cv2.putText(img , text , org , font , fontscale , color , thickness)
+/*
+text: string of text you wanna display
+org: bottom left of text (x,y)
+font: font of the text (cv2.FONT_NAME)
+fontscale: 1.0 for normal and 2.0 for big
+*/
+For Ex-
+image = cv2.imread("IMG-20250701-WA0010.jpg" , -1)
+
+if image is not None:
+    print("Image loaded successfully")
+    cv2.putText(image, "Hello, OpenCV!", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+    cv2.imshow("Image with Line", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print("Error: Image not found or unable to load.")
+_______________________________________________________________________________________________________________________________________________________________________
+/// Edge Detection and Thresholding 
+
+CANNY EDGE DETECTION IN OpenCV:
+/*                                
+Uses:1) Detect Borders
+     2) Separate Objects
+     3) Feature Extraction
+*/
+
+edges = cv2.Canny(img , threshold1 , threshold2)
+
+For Ex-
+image = cv2.imread("flower.jpeg" , cv2.IMREAD_GRAYSCALE) //Image should be GrayScale...
+edges = cv2.Canny(image, 50, 150)
+
+if image is not None:
+    print("Image loaded successfully")
+    cv2.imshow("Original Image", image)
+    cv2.imshow("Canny Edges", edges)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print("Error: Image not found or unable to load.")
+
+
+THRESHOLDING IN OpenCV:
+
+thresholded_image = cv2.threshold(img , thresh_value , max_value , method) 
+/*
+thresh_value: 0-255
+max_value: 255
+method: Usually cv2.THRESH_BINARY
+*/
+For Ex-
+image = cv2.imread("flower.jpeg" , cv2.IMREAD_GRAYSCALE)
+ret, thresh = cv2.threshold(image, 110, 255, cv2.THRESH_BINARY)
+
+print("Image loaded successfully")
+cv2.imshow("Original Image", image)
+cv2.imshow("Canny Edges", thresh)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+BITWISE OPERATIONS IN OpenCV:
+/*
+1) cv2.bitwise_and(img1 , img2) - Used to extract intersecting parts from 2 images...
+2) cv2.bitwise_or(img1 , img2) - used to extract union parts from 2 images  ex- applying effects...
+3) cv2.bitwise_not(img) - interchange black and white pixels in 1 image...
+
+IMG size of both images should be same
+*/
+
+For Ex-
+
+******************************************************************************************************************************************************************
+HIDDEN KNOWLEDGE -> You can create img from nothing by img = np.zeros((300,300) , dtype= np.uint8) , here array has 300*300 elements and each element is 0 and****
+  np.unit8 dtype makes sure every value is in range from 0-255 , therefore every element ; 0 represents BLACK color , an img with 300*300 pixels and all black****
+  for diff colors use np.full((300,300) , Value , dtype=uint8) , just replace Value with int and make differnet color bg's...                                 ****
+*******************************************************************************************************************************************************************
+import cv2
+import numpy as np
+
+img1 = np.zeros((300,300) , dtype=np.uint8) --> Here, Numpy is used to make a grid of 300x300 where each value varies from 0-255 becuz dtype=np.unit8  and that is what
+img2 = np.zeros((300,300) , dtype=np.uint8)     opencv expects and because of it ,an array of np.zeros() behaves as an grayscale img (Useful to crt an img from scratch)
+
+cv2.circle(img1 , (150,150) , 100 , 255 ,-1)
+cv2.rectangle(img2 , (100,100) , (250,250) , 255 ,-1)
+bitAnd = cv2.bitwise_and(img1 , img2)
+bitOr = cv2.bitwise_or(img1 , img2)
+bitNot = cv2.bitwise_not(img1)
+
+cv2.imshow("Image 1" , img1)
+cv2.imshow("Image 2" , img2)
+cv2.imshow("Bitwise AND" , bitAnd)
+cv2.imshow("Bitwise OR" , bitOr)
+cv2.imshow("Bitwise NOT" , bitNot)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+  
