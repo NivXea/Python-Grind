@@ -1,0 +1,72 @@
+import cv2
+________________________________________________________________________________________________________________________________________________________________________
+// Contours And Shape Detection
+
+cv2.findcontours(img , mode , method)
+/*
+img must be Binary
+
+Mode: Tells about 2 things. How many and What kind of contours to return
+modes are: 1) cv2.RETR_TREE (returns all shapes inside shapes with hierarchy(who is parent , child shape).)
+           2) cv2.RETR_EXTERNAL (returns all outermost shape)
+           3) cv2.RETR_LIST ( returns all shape but without hierarchy)
+
+Method: Tells about how much details to return about contour (Usually cv2.CHAIN_APPROX_SIMPLE/NONE)
+*/
+SYNTAX-
+  
+img = cv2.imread("Triangle.png" , -1)
+gray = cv2.cvtColor(img , cv2.COLOR_BGR2GRAY)
+_, thresh = cv2.threshold(gray , 240 , 255 , cv2.THRESH_BINARY)
+contours , heirarchy = cv2.findContours(thresh , cv2.RETR_TREE , cv2.CHAIN_APPROX_SIMPLE)
+
+DRAWING CONTOURS:
+  
+cv2.drawContours(img , contours , contour_index , color , thickness)
+
+/*
+contours: it is the contours returned from cv2.findContours()
+contour_index: 0 to draw 1st shape in list , 1 to draw 2nd shape in list and so on but -1 to draw all shapes in list
+*/
+______________________________________________________________________________________________________________________________________________________________________
+// ApproxPolyDP Function (The Legend Himself)
+cv2.approxPolyDP(contour , epsilion , True)
+/*
+epsilon: 0.01 * cv2.arcLength(contour , True)
+So basically finding Contour is must...
+*/
+Ex-
+import cv2
+
+img = cv2.imread("Triangle.png" , -1)
+gray = cv2.cvtColor(img , cv2.COLOR_BGR2GRAY)
+_, thresh = cv2.threshold(gray , 200 , 255 , cv2.THRESH_BINARY)
+contours , heirarchy = cv2.findContours(thresh , cv2.RETR_TREE , cv2.CHAIN_APPROX_SIMPLE)
+
+for contour in contours:
+    approx = cv2.approxPolyDP(contour , 0.01*cv2.arcLength(contour, True) , True)
+    corners = len(approx)
+    if corners == 3:
+        shape_name = "Triangle"
+    elif corners == 4:
+        shape_name = "Quadrilateral"
+    elif corners == 5:
+        shape_name = "Pentagon"
+    elif corners > 6:
+        shape_name = "Circle"
+
+    cv2.drawContours(img , [approx] , 0 , (255,0,0) , 1)
+    x = approx.ravel()[0]
+    y = approx.ravel()[1] - 10
+    cv2.putText(img , shape_name , (x,y) , cv2.FONT_HERSHEY_COMPLEX , 0.5 , (255,255,0))
+    cv2.drawContours(img , contours , -1 , (0,255,0) , 1)
+
+cv2.imshow("Image" , img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+_________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+  
