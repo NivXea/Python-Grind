@@ -1,0 +1,8 @@
+// pow( n1 , n2 , %)
+This function helps in finding n1**n2 and the remainder when divided by a particular number million times faster than a loop...
+
+for ex- pow(3, 100 , 10) --> (3**100) % 10 = 1 
+
+and If you just want the number then pow(3 , 25) = 282429536481 (Incredibly Faster)
+
+______________________________________________________________________________________________________________________________________________________________________________________________
