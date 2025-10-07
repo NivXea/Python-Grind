@@ -17,7 +17,8 @@ ________________________________________________________________________________
 
 lambda x: f(x) is a inline temporary function in python( if you wanna use a function for once, use it rather than def it)...
 
-lambda x: x*2 
+y = lambda x: x*2
+print(y(4)) --> 4*2 = 8
 ________________________________________________________________________________________________________________________________________________________________________________________
 // sorted(iterable , key , reverse)
 
