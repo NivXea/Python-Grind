@@ -12,11 +12,21 @@ for i , num in enumerate(integers) --> This help is getting favourable index of 
   if (condition with num):
     fav_index = i
 
+_______________________________________________________________________________________________________________________________________________________________________________________
+// lambda x:
+
+lambda x: f(x) is a inline temporary function in python( if you wanna use a function for once, use it rather than def it)...
+
+lambda x: x*2 
 ________________________________________________________________________________________________________________________________________________________________________________________
+// sorted(iterable , key , reverse)
 
+key is the paramter which tells about how to compare the items
 
+list = [1,8,4]
+sorted(list , key= lambda x: x] 
 
-
+print(list) --> [1,4,8]
 
 
 
