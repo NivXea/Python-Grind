@@ -112,36 +112,41 @@ Output:
 6        Raj  25.000000  48000.000000          80.000000
 7     Simran  32.000000  58000.000000          89.000000
 ----------------------------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________________________________________________________
+#InterPolate Method
+-> Sometimes to maintain data integrity and flow, pandas interpolate method fills the missing values via estimating it to its near surrounding data values
 
+Syntax: df.interpolate(method= "linear"/"polynomial"/"time" , axis= 0 , inplace= True)
 
+data = {
+    "Time": [1 , 2 ,3 ,4 ,5],
+    "Value": [10 , None ,30 ,None , 50]
+}
+df = pd.DataFrame(data)
+print("Before Interpolation")
+print(df)
+print("After Interpolation")
+df['Value'] = df['Value'].interpolate(method="linear", axis=0)
+print(df)
 
+Output:
+------------------------------------------------------------------------------
+   Time  Value
+0     1   10.0
+1     2    NaN
+2     3   30.0
+3     4    NaN
+4     5   50.0
+After Interpolation
+   Time  Value
+0     1   10.0
+1     2   20.0
+2     3   30.0
+3     4   40.0
+4     5   50.0
+-------------------------------------------------------------------------------
+NOTE: This Can be Used in Timer Based Data or When Working with Numerical Data set where a pattern is followed
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+__________________________________________________________________________________________________________________________________________________________________________________________
 
 
