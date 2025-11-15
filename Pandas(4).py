@@ -1,7 +1,7 @@
 #Sorting Data
 
-//Sorting Data in 1 column
-Syntax: df.sort_values(by="Column_name" , ascending=True/False , inplace=True/False) --> Here ascending=True is to sort in ascending order and False to sort in descending order
+//Sorting Data in Columns
+Syntax: df.sort_values(by=["Column_name" , etc..] , ascending=[True/False , True/False , etc..] , inplace=True/False) --> Here ascending=True is to sort in ascending order and False to sort in descending order
 
 data = {
   "Name" : [ "Arun" , "Varun" , "Shreya"],
@@ -10,7 +10,7 @@ data = {
 }
 
 df = pd.DataFrame(data)
-df.sort_values(by="Age" , ascending=False , inplace=True)
+df.sort_values(by=["Age" , "Salary"] , ascending=[False , True] , inplace=True)
 print(df)
 
 Output:
@@ -20,6 +20,9 @@ Output:
 2  Shreya   32   70000
 1   Varun   18   60000
 --------------------------------
+__________________________________________________________________________________________________________________________________________________________________________________________
+#Grouping 
+Syntax: grouped = df.groupby(["column1" , "column2" , ..])
 
 
 
